@@ -1,0 +1,32 @@
+{#<form action="/triangle/" method="post">#}
+{#    {% csrf_token %}#}
+{#    <for="leg a">Cathetus a: </label>#}
+{#    <input id="Cathetus a" type="text" name="Cathetus a" value="{{ current_name }}"><br>#}
+{#    <label for="leg b">Cathetus b: </label>#}
+{#    <input id="Cathetus b" type="text" name="Cathetus c" value="{{ current_name }}">#}
+{#    <input type="submit" value="OK">#}
+{#    <label for="hypotenuse">Hypotenuse: </label>#}
+
+
+{#<label for="leg_a">Cathetus a: </label>#}
+{#<input id="leg_a" type="text" name="leg_a" required>#}
+{#<br><label for="leg_b">Cathetus b: </label>#}
+{#<input id="leg_b" type="text" name="leg_b" required>#}
+{#<br><label for="hypotenuse">Hypotenuse: </label>#}
+
+
+{% if form.leg_a == None and form.leg_b == None %}
+    <form action="/triangle/" method="post">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="OK">
+    </form>
+{% endif %}
+{% if form.leg_a != None and form.leg_b != None %}
+    <form action="/triangle/" method="post">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="OK">
+    </form>
+{% endif %}
+
