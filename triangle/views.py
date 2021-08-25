@@ -11,7 +11,8 @@ def validate(request):
         if form.is_valid():
             leg_a = form.cleaned_data['leg_a']
             leg_b = form.cleaned_data['leg_b']
-            form.hypotenuse = sqrt(leg_a ** 2 + leg_b ** 2)
+            # form.hypotenuse = sqrt(leg_a ** 2 + leg_b ** 2)
+            form = TriangleForm(initial={'hypotenuse': sqrt(leg_a ** 2 + leg_b ** 2)})
             return HttpResponseRedirect("/triangle/")
     else:
         form = TriangleForm()
